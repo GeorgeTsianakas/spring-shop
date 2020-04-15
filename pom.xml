@@ -11,7 +11,8 @@
     <groupId>com.springrest</groupId>
     <artifactId>shop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springshop</name>
+
+    <name>spring-shop</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
