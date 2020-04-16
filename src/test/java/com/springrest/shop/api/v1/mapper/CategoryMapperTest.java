@@ -1,14 +1,12 @@
 package com.springrest.shop.api.v1.mapper;
 
-package com.springrest.shop.api.v1.mapper;
-
 import com.springrest.shop.api.v1.model.CategoryDTO;
 import com.springrest.shop.domain.Category;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public interface CategoryMapperTest {
+public class CategoryMapperTest {
 
     public static final String NAME = "Joe";
     public static final long ID = 1L;

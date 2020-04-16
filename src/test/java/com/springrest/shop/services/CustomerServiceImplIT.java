@@ -1,5 +1,6 @@
 package com.springrest.shop.services;
 
+import com.springrest.shop.api.v1.mapper.CustomerMapper;
 import com.springrest.shop.api.v1.model.CustomerDTO;
 import com.springrest.shop.bootstrap.Bootstrap;
 import com.springrest.shop.domain.Customer;
