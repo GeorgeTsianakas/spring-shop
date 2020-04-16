@@ -1,4 +1,4 @@
-package com.springrest.shop.api.model;
+package com.springrest.shop.api.v1.model;
 
 import lombok.Data;
 

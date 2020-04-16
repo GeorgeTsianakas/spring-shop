@@ -2,22 +2,24 @@ package com.springrest.shop.bootstrap;
 
 import com.springrest.shop.domain.Category;
 import com.springrest.shop.domain.Customer;
+import com.springrest.shop.domain.Vendor;
 import com.springrest.shop.repositories.CategoryRepository;
 import com.springrest.shop.repositories.CustomerRepository;
+import com.springrest.shop.repositories.VendorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Bootstrap implements CommandLineRunner{
+public class Bootstrap implements CommandLineRunner {
 
     private final CategoryRepository categoryRespository;
     private final CustomerRepository customerRepository;
+    private final VendorRepository vendorRepository;
 
-    public Bootstrap(CategoryRepository categoryRespository, CustomerRepository customerRepository) {
-
+    public Bootstrap(CategoryRepository categoryRespository, CustomerRepository customerRepository, VendorRepository vendorRepository) {
         this.categoryRespository = categoryRespository;
         this.customerRepository = customerRepository;
-
+        this.vendorRepository = vendorRepository;
     }
 
     @Override
@@ -25,6 +27,7 @@ public class Bootstrap implements CommandLineRunner{
 
         loadCategories();
         loadCustomers();
+        loadVendors();
 
     }
 
@@ -62,6 +65,17 @@ public class Bootstrap implements CommandLineRunner{
         customer2.setLastname("Axe");
         customerRepository.save(customer2);
         System.out.println("Customers Loaded: " + customerRepository.count());
+
+    }
+
+    private void loadVendors() {
+
+        Vendor vendor1 = new Vendor();
+        vendor1.setName("Vendor 1");
+        vendorRepository.save(vendor1);
+        Vendor vendor2 = new Vendor();
+        vendor2.setName("Vendor 2");
+        vendorRepository.save(vendor2);
 
     }
 

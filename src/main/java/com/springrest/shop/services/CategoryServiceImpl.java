@@ -1,9 +1,8 @@
 package com.springrest.shop.services;
 
-import com.springrest.shop.api.mapper.CategoryMapper;
-import com.springrest.shop.api.model.CategoryDTO;
+import com.springrest.shop.api.v1.mapper.CategoryMapper;
+import com.springrest.shop.api.v1.model.CategoryDTO;
 import com.springrest.shop.repositories.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,15 +11,11 @@ import java.util.stream.Collectors;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private  CategoryMapper categoryMapper;
-    private  CategoryRepository categoryRepository;
+    private final CategoryMapper categoryMapper;
+    private final CategoryRepository categoryRepository;
 
-    @Autowired
-    public void setCategoryMapper(CategoryMapper categoryMapper) {
+    public CategoryServiceImpl(CategoryMapper categoryMapper, CategoryRepository categoryRepository) {
         this.categoryMapper = categoryMapper;
-    }
-    @Autowired
-    public void setCategoryRepository(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 

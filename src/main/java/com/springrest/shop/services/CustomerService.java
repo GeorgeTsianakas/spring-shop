@@ -1,6 +1,6 @@
 package com.springrest.shop.services;
 
-import com.springrest.shop.api.model.CustomerDTO;
+import com.springrest.shop.api.v1.model.CustomerDTO;
 
 import java.util.List;
 
@@ -17,5 +17,4 @@ public interface CustomerService {
     CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO);
 
     void deleteCustomerById(Long id);
-
 }

@@ -1,8 +1,8 @@
 package com.springrest.shop.services;
 
-import com.springrest.shop.api.mapper.CustomerMapper;
-import com.springrest.shop.api.model.CustomerDTO;
-import com.springrest.shop.controllers.CustomerController;
+import com.springrest.shop.api.v1.mapper.CustomerMapper;
+import com.springrest.shop.api.v1.model.CustomerDTO;
+import com.springrest.shop.controllers.v1.CustomerController;
 import com.springrest.shop.domain.Customer;
 import com.springrest.shop.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;

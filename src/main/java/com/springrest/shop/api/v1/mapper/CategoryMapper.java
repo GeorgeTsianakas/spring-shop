@@ -1,6 +1,6 @@
-package com.springrest.shop.api.mapper;
+package com.springrest.shop.api.v1.mapper;
 
-import com.springrest.shop.api.model.CategoryDTO;
+import com.springrest.shop.api.v1.model.CategoryDTO;
 import com.springrest.shop.domain.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -9,7 +9,6 @@ import org.mapstruct.factory.Mappers;
 public interface CategoryMapper {
 
     CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
-
 
     CategoryDTO categoryToCategoryDTO(Category category);
 

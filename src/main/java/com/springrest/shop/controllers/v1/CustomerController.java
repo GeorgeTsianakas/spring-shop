@@ -1,7 +1,7 @@
-package com.springrest.shop.controllers;
+package com.springrest.shop.controllers.v1;
 
-import com.springrest.shop.api.model.CustomerDTO;
-import com.springrest.shop.api.model.CustomerListDTO;
+import com.springrest.shop.api.v1.model.CustomerDTO;
+import com.springrest.shop.api.v1.model.CustomerListDTO;
 import com.springrest.shop.services.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

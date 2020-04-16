@@ -1,7 +1,7 @@
-package com.springrest.shop.controllers;
+package com.springrest.shop.controllers.v1;
 
-import com.springrest.shop.api.model.CategoryDTO;
-import com.springrest.shop.api.model.CategoryListDTO;
+import com.springrest.shop.api.v1.model.CategoryDTO;
+import com.springrest.shop.api.v1.model.CategoryListDTO;
 import com.springrest.shop.services.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(CategoryController.BASE_URL)
 public class CategoryController {
 
-    public static final String BASE_URL = "/api/categories";
+    public static final String BASE_URL = "/api/v1/categories";
 
     private final CategoryService categoryService;
 
@@ -20,7 +20,7 @@ public class CategoryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public CategoryListDTO getallCategories() {
+    public CategoryListDTO getallCatetories() {
         return new CategoryListDTO(categoryService.getAllCategories());
     }
 
