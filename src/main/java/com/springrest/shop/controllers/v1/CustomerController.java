@@ -3,9 +3,12 @@ package com.springrest.shop.controllers.v1;
 import com.springrest.shop.api.v1.model.CustomerDTO;
 import com.springrest.shop.api.v1.model.CustomerListDTO;
 import com.springrest.shop.services.CustomerService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+@Api(description = "This is my Customer Controller")
 @RestController
 @RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {
@@ -18,6 +21,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @ApiOperation(value = "This will get a list of customers.", notes = "These are some notes about the API.")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getListOfCustomers() {
