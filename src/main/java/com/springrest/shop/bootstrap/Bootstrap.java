@@ -1,10 +1,8 @@
 package com.springrest.shop.bootstrap;
 
 import com.springrest.shop.domain.Category;
-import com.springrest.shop.domain.Customer;
 import com.springrest.shop.domain.Vendor;
 import com.springrest.shop.repositories.CategoryRepository;
-import com.springrest.shop.repositories.CustomerRepository;
 import com.springrest.shop.repositories.VendorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,70 +10,61 @@ import org.springframework.stereotype.Component;
 @Component
 public class Bootstrap implements CommandLineRunner {
 
-    private final CategoryRepository categoryRespository;
-    private final CustomerRepository customerRepository;
+    private final CategoryRepository categoryRepository;
     private final VendorRepository vendorRepository;
 
-    public Bootstrap(CategoryRepository categoryRespository, CustomerRepository customerRepository, VendorRepository vendorRepository) {
-        this.categoryRespository = categoryRespository;
-        this.customerRepository = customerRepository;
+    public Bootstrap(CategoryRepository categoryRepository, VendorRepository vendorRepository) {
+        this.categoryRepository = categoryRepository;
         this.vendorRepository = vendorRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        loadCategories();
-        loadCustomers();
-        loadVendors();
+        if (categoryRepository.count().block() == 0) {
+            //load data
+            System.out.println("#### LOADING DATA ON BOOTSTRAP #####");
 
-    }
+            categoryRepository.save(Category.builder()
+                    .description("Fruits").build()).block();
 
-    private void loadCategories() {
+            categoryRepository.save(Category.builder()
+                    .description("Nuts").build()).block();
 
-        Category fruits = new Category();
-        fruits.setName("Fruits");
-        Category dried = new Category();
-        dried.setName("Dried");
-        Category fresh = new Category();
-        fresh.setName("Fresh");
-        Category exotic = new Category();
-        exotic.setName("Exotic");
-        Category nuts = new Category();
-        nuts.setName("Nuts");
-        categoryRespository.save(fruits);
-        categoryRespository.save(dried);
-        categoryRespository.save(fresh);
-        categoryRespository.save(exotic);
-        categoryRespository.save(nuts);
-        System.out.println("Categories Loaded: " + categoryRespository.count());
+            categoryRepository.save(Category.builder()
+                    .description("Breads").build()).block();
 
-    }
+            categoryRepository.save(Category.builder()
+                    .description("Meats").build()).block();
 
-    private void loadCustomers() {
+            categoryRepository.save(Category.builder()
+                    .description("Eggs").build()).block();
 
-        Customer customer1 = new Customer();
-        customer1.setId(1l);
-        customer1.setFirstname("Michale");
-        customer1.setLastname("Weston");
-        customerRepository.save(customer1);
-        Customer customer2 = new Customer();
-        customer2.setId(2l);
-        customer2.setFirstname("Sam");
-        customer2.setLastname("Axe");
-        customerRepository.save(customer2);
-        System.out.println("Customers Loaded: " + customerRepository.count());
+            System.out.println("Loaded Categories: " + categoryRepository.count().block());
 
-    }
+            vendorRepository.save(Vendor.builder()
+                    .firstName("Joe")
+                    .lastName("Buck").build()).block();
 
-    private void loadVendors() {
+            vendorRepository.save(Vendor.builder()
+                    .firstName("Micheal")
+                    .lastName("Weston").build()).block();
 
-        Vendor vendor1 = new Vendor();
-        vendor1.setName("Vendor 1");
-        vendorRepository.save(vendor1);
-        Vendor vendor2 = new Vendor();
-        vendor2.setName("Vendor 2");
-        vendorRepository.save(vendor2);
+            vendorRepository.save(Vendor.builder()
+                    .firstName("Jessie")
+                    .lastName("Waters").build()).block();
+
+            vendorRepository.save(Vendor.builder()
+                    .firstName("Bill")
+                    .lastName("Nershi").build()).block();
+
+            vendorRepository.save(Vendor.builder()
+                    .firstName("Jimmy")
+                    .lastName("Buffett").build()).block();
+
+            System.out.println("Loaded Vendors: " + vendorRepository.count().block());
+
+        }
 
     }
 
