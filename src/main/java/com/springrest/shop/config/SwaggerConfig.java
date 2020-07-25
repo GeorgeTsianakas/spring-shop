@@ -41,6 +41,6 @@ public class SwaggerConfig { //} extends WebMvcConfigurationSupport {
                 " ",
                 " ",
                 new ArrayList<>());
-            }
+    }
 
 }
